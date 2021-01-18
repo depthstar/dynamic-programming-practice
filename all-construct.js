@@ -17,6 +17,9 @@ const allConstruct = (target, wordBank, memo={}) => {
     return memo[target];
 }
 
+//time: O(n^m)
+//space: O(m)
+//can't get away from exponents since it wants every combination
 
 
 console.log(allConstruct("purple", ['purp', 'p', 'ur', 'le', 'purpl']));
