@@ -1,5 +1,5 @@
 
-]const fib = (n) => {
+const fib = (n) => {
 
 }
 
