@@ -1,7 +1,22 @@
 
-const canSum = () => {
+const canSum = (targetSum, numbers) => {
+    const table = Array(targetSum + 1).fill(false);
+    table[0] = true;
+    for (i=0; i <= targetSum; i++) {
+        if (table[i] === true) {
+            for (let num of numbers) {
+                table[i + num] = true;
+            }
+        }
+    }
+    return table[targetSum];
+
 
 }
+
+//complexity
+//time: O(mn)
+//space: O(m)
 
 
 //testing
