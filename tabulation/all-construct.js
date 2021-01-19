@@ -1,7 +1,26 @@
 
 const allConstruct = (target, wordBank) => {
+    const table = Array(target.length + 1)
+        .fill()
+        .map(() => []);
+
+    table[0] = [[]];
+
+    for (let i = 0; i <= target.length; i++) {
+        for (let word of wordBank) {
+            if (target.slice(i, i + word.length) === word) {
+                const newCombinations = table[i].map(subArray => [ ...subArray, word ]);
+                table[i + word.length].push(...newCombinations);
+            }
+        }
+    }
+    return table[target.length];
 
 }
+
+//complexity
+//time: O(n^m) - exponential number of combinations that have to be returned, have to return the whole table
+//space: O(n^m) - at any position, we have potentially an exponential number of things
 
 //testing
 console.log(allConstruct("purple", ['purp', 'p', 'ur', 'le', 'purpl']));
@@ -17,16 +36,15 @@ console.log(allConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd", "ef", "c"]
     //['abcd', 'ef']
 //]
 console.log(allConstruct("skateboard", ["bo", "rd", "ate", "t", "ska", "sk", "boar"])); //[]
-console.log(allConstruct("enterapotentpot", ["a", "p", "ent", "enter", "ot", "o", "t"])); //4
 
-console.log(allConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", 
+console.log(allConstruct("aaaaaaaaaaaaz", 
 [
-    "e",
-    "ee",
-    "eee",
-    "eeee",
-    "eeeee",
-    "eeeeee",
-    "eeeeeee"
+    "a",
+    "aa",
+    "aaa",
+    "aaaa",
+    "aaaaa",
+    "aaaaaa",
+    "aaaaaaa"
 ]
 )); // []]
