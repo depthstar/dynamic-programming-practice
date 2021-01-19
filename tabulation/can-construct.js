@@ -17,6 +17,11 @@ const canConstruct = (target, wordBank) => {
 
 }
 
+//complexity
+// O(m2 * n) time
+// O(m) space
+
+
 //testing
 console.log(canConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"])) //true
 console.log(canConstruct("skateboard", ["bo", "rd", "ate", "t", "ska", "sk", "boar"])) //false
